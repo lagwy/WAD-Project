@@ -22,55 +22,86 @@
 
         <!-- Brand and toggle get grouped for better mobile display -->
         <div class="navbar-header">
-            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1"> <span class="sr-only">Toggle navigation</span> <span class="icon-bar"></span> <span class="icon-bar"></span> <span class="icon-bar"></span> </button>
-            <a class="navbar-brand" href="home.html">Brand</a> </div>
+            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse"
+                    data-target="#bs-example-navbar-collapse-1"><span class="sr-only">Toggle navigation</span> <span
+                    class="icon-bar"></span> <span class="icon-bar"></span> <span class="icon-bar"></span></button>
+            <a class="navbar-brand" href="home.html">Brand</a></div>
 
         <!-- Collect the nav links, forms, and other content for toggling -->
         <div class="collapse navbar-collapse">
             <ul class="nav navbar-nav navbar-right hidden-sm">
-                <li><a href="#">Catálogo</a> </li>
-                <li class="dropdown"> <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Sobre nosotros<span class="caret"></span></a>
+                <li><a href="#">Catálogo</a></li>
+                <li class="dropdown"><a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button"
+                                        aria-expanded="false">Sobre nosotros<span class="caret"></span></a>
                     <ul class="dropdown-menu" role="menu">
-                        <li><a href="mission.html">Misión</a> </li>
-                        <li><a href="vision.html">Visión</a> </li>
-                        <li><a href="contact.html">Contacto</a> </li>
+                        <li><a href="mission.html">Misión</a></li>
+                        <li><a href="vision.html">Visión</a></li>
+                        <li><a href="contact.html">Contacto</a></li>
                     </ul>
                 </li>
-                <li><a href="register.html">Regístrate</a> </li>
-                <li><a href="#">Ingresa</a> </li>
+                <li><a href="register.html">Regístrate</a></li>
+                <li data-toggle="modal" data-target="#myModal"><a href="#">Ingresa</a></li>
             </ul>
+
+
             <form class="navbar-form navbar-left" role="search">
                 <div class="form-group">
                     <input type="text" class="form-control" placeholder="Search">
                 </div>
                 <button type="submit" class="btn btn-default">Submit</button>
             </form>
-        </div>
-        <!-- /.navbar-collapse -->
-    </div>
-    <!-- /.container-fluid -->
+
+            <!-- Modal -->
+            <div class="modal fade" id="myModal" role="dialog">
+                <div class="modal-dialog">
+
+                    <!-- Modal content-->
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <button type="button" class="close" data-dismiss="modal">&times;</button>
+                            <h4 class="modal-title">Modal Header</h4>
+                        </div>
+                        <div class="modal-body">
+                            <p>Some text in the modal.</p>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                        </div>
+                    </div>
+                </div>
+                <!-- /.navbar-collapse -->
+            </div>
+            <!-- /.container-fluid -->
 </nav>
 <div class="container">
     <div class="row">
         <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
             <div id="carousel1" class="carousel slide">
                 <ol class="carousel-indicators">
-                    <li data-target="#carousel1" data-slide-to="0" class="active"> </li>
-                    <li data-target="#carousel1" data-slide-to="1" class=""> </li>
-                    <li data-target="#carousel1" data-slide-to="2" class=""> </li>
+                    <li data-target="#carousel1" data-slide-to="0" class="active"></li>
+                    <li data-target="#carousel1" data-slide-to="1" class=""></li>
+                    <li data-target="#carousel1" data-slide-to="2" class=""></li>
                 </ol>
                 <div class="carousel-inner">
-                    <div class="item"> <img class="img-responsive" src="img/1920x500.gif" alt="thumb">
-                        <div class="carousel-caption"> Carousel caption 1. Here goes slide description. Lorem ipsum dolor set amet. </div>
+                    <div class="item"><img class="img-responsive" src="img/1920x500.gif" alt="thumb">
+                        <div class="carousel-caption"> Carousel caption 1. Here goes slide description. Lorem ipsum
+                            dolor set amet.
+                        </div>
                     </div>
-                    <div class="item active"> <img class="img-responsive" src="img/1920x500.gif" alt="thumb">
-                        <div class="carousel-caption"> Carousel caption 2. Here goes slide description. Lorem ipsum dolor set amet. </div>
+                    <div class="item active"><img class="img-responsive" src="img/1920x500.gif" alt="thumb">
+                        <div class="carousel-caption"> Carousel caption 2. Here goes slide description. Lorem ipsum
+                            dolor set amet.
+                        </div>
                     </div>
-                    <div class="item"> <img class="img-responsive" src="img/1920x500.gif" alt="thumb">
-                        <div class="carousel-caption"> Carousel caption 3. Here goes slide description. Lorem ipsum dolor set amet. </div>
+                    <div class="item"><img class="img-responsive" src="img/1920x500.gif" alt="thumb">
+                        <div class="carousel-caption"> Carousel caption 3. Here goes slide description. Lorem ipsum
+                            dolor set amet.
+                        </div>
                     </div>
                 </div>
-                <a class="left carousel-control" href="#carousel1" data-slide="prev"><span class="icon-prev"></span></a> <a class="right carousel-control" href="#carousel1" data-slide="next"><span class="icon-next"></span></a></div>
+                <a class="left carousel-control" href="#carousel1" data-slide="prev"><span class="icon-prev"></span></a>
+                <a class="right carousel-control" href="#carousel1" data-slide="next"><span
+                        class="icon-next"></span></a></div>
         </div>
     </div>
     <hr>
@@ -79,7 +110,8 @@
     <div class="row">
         <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4">
             <div class="row">
-                <div class="col-lg-2 col-md-3 col-sm-3 col-xs-2"><img class="img-circle" alt="Free Shipping" src="img/40X40.gif"></div>
+                <div class="col-lg-2 col-md-3 col-sm-3 col-xs-2"><img class="img-circle" alt="Free Shipping"
+                                                                      src="img/40X40.gif"></div>
                 <div class="col-lg-6 col-md-9 col-sm-9 col-xs-9">
                     <h4>Free Shipping</h4>
                 </div>
@@ -87,7 +119,8 @@
         </div>
         <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4">
             <div class="row">
-                <div class="col-lg-2 col-md-3 col-sm-3 col-xs-2"><img class="img-circle" alt="Free Shipping" src="img/40X40.gif"></div>
+                <div class="col-lg-2 col-md-3 col-sm-3 col-xs-2"><img class="img-circle" alt="Free Shipping"
+                                                                      src="img/40X40.gif"></div>
                 <div class="col-lg-6 col-md-9 col-sm-9 col-xs-9">
                     <h4>Free Returns</h4>
                 </div>
@@ -95,7 +128,8 @@
         </div>
         <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4">
             <div class="row">
-                <div class="col-lg-2 col-md-3 col-sm-3 col-xs-2"><img class="img-circle" alt="Free Shipping" src="img/40X40.gif"></div>
+                <div class="col-lg-2 col-md-3 col-sm-3 col-xs-2"><img class="img-circle" alt="Free Shipping"
+                                                                      src="img/40X40.gif"></div>
                 <div class="col-lg-6 col-md-9 col-sm-9 col-xs-9">
                     <h4>Low Prices</h4>
                 </div>
@@ -109,7 +143,7 @@
 <div class="container">
     <div class="row text-center">
         <div class="col-sm-4 col-md-4 col-lg-4 col-xs-6">
-            <div class="thumbnail"> <img src="img/400X200.gif" alt="Thumbnail Image 1" class="img-responsive">
+            <div class="thumbnail"><img src="img/400X200.gif" alt="Thumbnail Image 1" class="img-responsive">
                 <div class="caption">
                     <h3>Product</h3>
                     <p>Lorem ipsum dolor sit amet, consectetur adipisicing.</p>
@@ -117,7 +151,7 @@
             </div>
         </div>
         <div class="col-sm-4 col-md-4 col-lg-4 col-xs-6">
-            <div class="thumbnail"> <img src="img/400X200.gif" alt="Thumbnail Image 1" class="img-responsive">
+            <div class="thumbnail"><img src="img/400X200.gif" alt="Thumbnail Image 1" class="img-responsive">
                 <div class="caption">
                     <h3>Product</h3>
                     <p>Lorem ipsum dolor sit amet, consectetur adipisicing.</p>
@@ -125,7 +159,7 @@
             </div>
         </div>
         <div class="col-sm-4 col-md-4 col-lg-4 col-xs-6">
-            <div class="thumbnail"> <img src="img/400X200.gif" alt="Thumbnail Image 1" class="img-responsive">
+            <div class="thumbnail"><img src="img/400X200.gif" alt="Thumbnail Image 1" class="img-responsive">
                 <div class="caption">
                     <h3>Product</h3>
                     <p>Lorem ipsum dolor sit amet, consectetur adipisicing.</p>
@@ -133,7 +167,7 @@
             </div>
         </div>
         <div class="col-sm-4 col-md-4 col-lg-4 col-xs-6 hidden-lg hidden-md hidden-sm">
-            <div class="thumbnail"> <img src="img/400X200.gif" alt="Thumbnail Image 1" class="img-responsive">
+            <div class="thumbnail"><img src="img/400X200.gif" alt="Thumbnail Image 1" class="img-responsive">
                 <div class="caption">
                     <h3>Product</h3>
                     <p>Lorem ipsum dolor sit amet, consectetur adipisicing.</p>
@@ -143,7 +177,7 @@
     </div>
     <div class="row text-center hidden-xs">
         <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4">
-            <div class="thumbnail"> <img src="img/400X200.gif" alt="Thumbnail Image 1" class="img-responsive">
+            <div class="thumbnail"><img src="img/400X200.gif" alt="Thumbnail Image 1" class="img-responsive">
                 <div class="caption">
                     <h3>Product</h3>
                     <p>Lorem ipsum dolor sit amet, consectetur adipisicing.</p>
@@ -151,7 +185,7 @@
             </div>
         </div>
         <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4">
-            <div class="thumbnail"> <img src="img/400X200.gif" alt="Thumbnail Image 1" class="img-responsive">
+            <div class="thumbnail"><img src="img/400X200.gif" alt="Thumbnail Image 1" class="img-responsive">
                 <div class="caption">
                     <h3>Product</h3>
                     <p>Lorem ipsum dolor sit amet, consectetur adipisicing.</p>
@@ -159,11 +193,11 @@
             </div>
         </div>
         <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4">
-            <div class="thumbnail"> <img src="img/400X200.gif" alt="Thumbnail Image 1" class="img-responsive">
+            <div class="thumbnail"><img src="img/400X200.gif" alt="Thumbnail Image 1" class="img-responsive">
                 <div class="caption">
                     <h3>Product</h3>
                     <p>Lorem ipsum dolor sit amet, consectetur adipisicing.</p>
-                    
+
                 </div>
             </div>
         </div>
@@ -177,33 +211,33 @@
                 <div class="col-sm-4 col-md-4 col-lg-4 col-xs-6">
                     <div>
                         <ul class="list-unstyled">
-                            <li> <a>Link anchor</a> </li>
-                            <li> <a>Link anchor</a> </li>
-                            <li> <a>Link anchor</a> </li>
-                            <li> <a>Link anchor</a> </li>
-                            <li> <a>Link anchor</a> </li>
+                            <li><a>Link anchor</a></li>
+                            <li><a>Link anchor</a></li>
+                            <li><a>Link anchor</a></li>
+                            <li><a>Link anchor</a></li>
+                            <li><a>Link anchor</a></li>
                         </ul>
                     </div>
                 </div>
                 <div class="col-sm-4 col-md-4 col-lg-4  col-xs-6">
                     <div>
                         <ul class="list-unstyled">
-                            <li> <a>Link anchor</a> </li>
-                            <li> <a>Link anchor</a> </li>
-                            <li> <a>Link anchor</a> </li>
-                            <li> <a>Link anchor</a> </li>
-                            <li> <a>Link anchor</a> </li>
+                            <li><a>Link anchor</a></li>
+                            <li><a>Link anchor</a></li>
+                            <li><a>Link anchor</a></li>
+                            <li><a>Link anchor</a></li>
+                            <li><a>Link anchor</a></li>
                         </ul>
                     </div>
                 </div>
                 <div class="col-sm-4 col-md-4 col-lg-4 col-xs-6">
                     <div>
                         <ul class="list-unstyled">
-                            <li> <a>Link anchor</a> </li>
-                            <li> <a>Link anchor</a> </li>
-                            <li> <a>Link anchor</a> </li>
-                            <li> <a>Link anchor</a> </li>
-                            <li> <a>Link anchor</a> </li>
+                            <li><a>Link anchor</a></li>
+                            <li><a>Link anchor</a></li>
+                            <li><a>Link anchor</a></li>
+                            <li><a>Link anchor</a></li>
+                            <li><a>Link anchor</a></li>
                         </ul>
                     </div>
                 </div>
