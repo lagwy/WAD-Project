@@ -1,0 +1,342 @@
+[
+	{
+		"identifier" : "AC",
+		"categoria" : "Accesorios de Computación",
+		"subcategoria": [
+		  {
+		"subcategory" : "Audífonos y Diademas"
+	},
+	{
+		"subcategory" : "Baterías para Laptops"
+	},
+	{
+		"subcategory" : "Bocinas para PC"
+	},
+	{
+		"subcategory" : "Cables y Conectores"
+	},
+	{
+		"subcategory" : "Cargadores para Laptops"
+	},
+	{
+		"subcategory" : "Teclados y Mouses"
+	}
+	]
+	},
+	{
+		"identifier" : "CTP",
+		"categoria" : "Cartuchos, Toner y Papel",
+		"subcategoria": [
+	{
+		"subcategory" : "Cartuchos"
+	},
+	{
+		"subcategory" : "Papel"
+	},
+	{
+		"subcategory" : "Toner"
+	},
+	{
+		"subcategory" : "Otros"
+	}
+	]
+	},
+	{
+		"identifier" : "CP",
+		"categoria" : "Componentes de PC",
+			"subcategoria": [
+	{
+		"subcategory" : "Fuentes de poder"
+	},
+	{
+		"subcategory" : "Gabinetes"
+	},
+	{
+		"subcategory" : "Lectores de CD y DVD"
+	},
+	{
+		"subcategory" : "Tarjetas Controladoras"
+	},
+	{
+		"subcategory" : "Tarjetas de Sonido"
+	},
+	{
+		"subcategory" : "Ventiladores y Coolers"
+	},
+	{
+		"subcategory" : "Otros"
+	}
+	]
+	},
+	{
+		"identifier" : "CS",
+		"categoria" : "Computadoras y Servidores",
+		"subcategoria": [
+	{
+		"subcategory" : "Acer"
+	},
+	{
+		"subcategory" : "Armadas"
+	},
+	{
+		"subcategory" : "Compaq"
+	},
+	{
+		"subcategory" : "Dell"
+	},
+	{
+		"subcategory" : "Gateway"
+	},
+	{
+		"subcategory" : "HP"
+	},
+	{
+		"subcategory" : "IBM"
+	},
+	{
+		"subcategory" : "Lenovo"
+	},
+	{
+		"subcategory" : "Sony Vaio"
+	},
+	{
+		"subcategory" : "Otros"
+	}
+	]
+	},
+	{
+		"identifier" : "DDR",
+		"categoria" : "Discos Duros y Removibles",
+		"subcategoria": [
+	{
+		"subcategory" : "Convertidores y Cables"
+	},
+	{
+		"subcategory" : "Discos Duros"
+	},
+	{
+		"subcategory" : "Gabinetes USB"
+	},
+	{
+		"subcategory" : "Otros"
+	}
+	]
+	},
+	{
+		"identifier" : "DCV",
+		"categoria" : "DVDs y CDs Vírgenes",
+		"subcategoria": [
+		  {
+		"subcategory" : "CDs Vírgenes"
+	},
+	{
+		"subcategory" : "DVD Vírgenes"
+	},
+	{
+		"subcategory" : "Estuches, Cajas y Sobres"
+	},
+	{
+		"subcategory" : "Otros"
+	}
+	]
+	},
+	{
+		"identifier" : "II",
+		"categoria" : "Impresoras e Insumos",
+		"subcategoria": [
+		  {
+		"subcategory" : "Impresoras"
+	},
+	{
+		"subcategory" : "Plotters"
+	},
+	{
+		"subcategory" : "Repuestos y Accesorios"
+	},
+	{
+		"subcategory" : "Otros"
+	}
+	]
+	},
+	{
+		"identifier" : "LAP",
+		"categoria" : "Laptops",
+		"subcategoria": [
+		  {
+		"subcategory" : "Acer"
+	},
+	{
+		"subcategory" : "Asus"
+	},
+	{
+		"subcategory" : "Compaq"
+	},
+	{
+		"subcategory" : "Dell"
+	},
+	{
+		"subcategory" : "Gateway"
+	},
+	{
+		"subcategory" : "HP"
+	},
+	{
+		"subcategory" : "Lenovo"
+	},
+	{
+		"subcategory" : "Toshiba"
+	},
+	{
+		"subcategory" : "Otras Marcas"
+	}
+	]
+	},
+	{
+		"identifier" : "MUF",
+		"categoria" : "Memorias Portátiles USB/FLASH",
+		"subcategoria": [
+		  {
+		"subcategory" : "1 GB y Memores"
+	},
+	{
+		"subcategory" : "16 GB y Mayores"
+	},
+	{
+		"subcategory" : "2 GB"
+	},
+	{
+		"subcategory" : "3 GB a 4GB"
+	},
+	{
+		"subcategory" : "5 GB a 8GB"
+	}
+	]
+	},
+	{
+		"identifier" : "MR",
+		"categoria" : "Memorias RAM",
+		"subcategoria": [
+		  {
+		"subcategory" : "Para Notebooks"
+	},
+	{
+		"subcategoria" : "Para PC"
+	}
+	]
+	},
+	{
+		"identifier" : "PRO",
+		"categoria" : "Procesadores",
+		"subcategoria": [
+		  {
+		"subcategory" : "AMD"
+	},
+	{
+		"subcategory" : "Intel"
+	},
+	{
+		"subcategory" : "Otros"
+	}
+	]
+	},
+	{
+		"identifier" : "QDC",
+		"categoria" : "Quemadores de DVDs y CDs",
+		"subcategoria": [
+	{
+		"subcategory" : "Quemadores de CDs"
+	},
+	{
+		"subcategory" : "Quemadores de DVDs"
+	},
+	{
+		"subcategory" : "Otros"
+	}
+	]
+	},
+	{
+		"identifier" : "RRI",
+		"categoria" : "Redes y Redes Inalámbricas",
+		"subcategoria": [
+	{
+		"subcategory" : "Adaptadores USB Inalámbricos"
+	},
+	{
+		"subcategory" : "Hubs"
+	},
+	{
+		"subcategory" : "Powerlines"
+	},
+	{
+		"subcategory" : "Routers Alámbricos"
+	},
+	{
+		"subcategory" : "Routers WiFi y Access Points"
+	},
+	{
+		"subcategory" : "Switches"
+	},
+	{
+		"subcategory" : "Tarjetas de Red"
+	},
+	{
+		"subcategory" : "Tarjetas de Red Inalámbricas"
+	},
+	{
+		"subcategory" : "Otros"
+	}
+	]
+	},
+	{
+		"identifier" : "SW",
+		"categoria" : "Software",
+		"subcategoria": [
+		  {
+		"subcategory" : "Antivirus"
+	},
+	{
+		"subcategory" : "Sistemas Operativos"
+	},
+	{
+		"subcategory" : "Otros"
+	}
+	]	  
+	},
+	{
+		"identifier" : "TVC",
+		"categoria" : "Tarjetas de Video y Captura",
+		"subcategoria": [
+		  {
+		"subcategory" : "Tarjetas de TV"
+	},
+	{
+		"subcategory" : "Tarjetas de Video"
+	},
+	{
+		"subcategory" : "Tarjetas Edición Profesional"
+	},
+	{
+		"subcategory" : "Otros"
+	}
+	]
+	},
+	{
+		"identifier" : "TM",
+		"categoria" : "Tarjetas Madre - Motherboards",
+		"subcategoria": [
+		  {
+		"subcategory" : "Para AMD"
+	},
+	{
+		"subcategory" : "Para Intel"
+	},
+	{
+		"subcategory" : "Otros"
+	}	
+	]
+	},
+	{
+		"identifier" : "ALL",
+		"categoria" : "Todo"
+	}
+]
