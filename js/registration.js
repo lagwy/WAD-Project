@@ -94,7 +94,44 @@ $(function () {
                } else{
                    if (passwrd === conf_passwrd){
                        // All the information is correct
-                       swal("Everything is correct");
+                       var jsonObject = {
+                           "action" : "REGISTER",
+                           "name" : name,
+                           "last_name" : last_name,
+                           "address" : address,
+                           "city" : city,
+                           "state" : state,
+                           "country" : country,
+                           "zip" : zip_code,
+                           "phone" : phone,
+                           "email" : email,
+                           "pwd" : passwrd
+                       };
+
+                       $.ajax({
+                           type: "POST",
+                           url: "data/ApplicationLayer.php",
+                           data : jsonObject,
+                           dataType : "json",
+                           contentType : "application/x-www-form-urlencoded",
+                           success: function(jsonData) {
+                               if (jsonData.status == 1){
+                                   swal("Registro exitoso");
+                                   window.location.replace("home.html");
+                               } else {
+                                   if (jsonData.status == 2){
+                                       swal("Este email ya está en uso. Por favor, inicie sesión.");
+                                       window.location.replace("home.html");
+                                   } else {
+                                       swal("Ocurrió un error al registrar");
+                                   }
+                               }
+
+                           },
+                           error: function(errorMsg){
+                               alert("Error al registrar");
+                           }
+                       }); // End of ajax call
                    } else {
                        swal("Las contraseñas no coinciden.");
                    }
