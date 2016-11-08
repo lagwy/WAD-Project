@@ -84,7 +84,24 @@ $(function () {
        }
 
        if (complete){
-           swal("Todo esta completo");
+           // Every field has data
+
+           // Validate emails match
+           if (email === conf_email){
+               // Validate password length
+               if (passwrd.length < 6 || passwrd.length > 15){
+                   swal("La contraseña debe tener entre 6 y 15 caracteres de longitud.");
+               } else{
+                   if (passwrd === conf_passwrd){
+                       // All the information is correct
+                       swal("Everything is correct");
+                   } else {
+                       swal("Las contraseñas no coinciden.");
+                   }
+               }
+           } else {
+               swal("Las correos electrónicos no coinciden.");
+           }
        }
    });
 
