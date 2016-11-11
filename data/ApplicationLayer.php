@@ -7,6 +7,17 @@ switch ($action){
         break;
     case "LOGIN": loginFunction();
         break;
+    case "SESSION": checkSession();
+        break;
+}
+
+function checkSession(){
+    session_start();
+    if (isset( $_SESSION['email'] )) {
+        echo json_encode(array("status"=>1));
+    } else {
+        echo json_encode(array("status"=>2));
+    }
 }
 
 function loginFunction(){
@@ -18,6 +29,9 @@ function loginFunction(){
     if ($result['status'] == "SUCCESS"){
         echo json_encode(array("message"=>"Bienvenido de nuevo", "status"=>1));
         // Set session here
+        session_start();
+        $_SESSION['email'] = $email;
+        $_SESSION['pswd'] = $pwd;
     } else {
         if ($result['status'] == "NOT FOUND"){
             echo json_encode(array("message"=>"Datos de usuario incorrectos", "status"=>2));

@@ -29,50 +29,12 @@
             <a class="navbar-brand" href="home.html">Brand</a></div>
 
         <!-- Collect the nav links, forms, and other content for toggling -->
-        <div class="collapse navbar-collapse">
-            <ul class="nav navbar-nav navbar-right hidden-sm">
-                <li><a href="catalog.html">Catálogo</a></li>
-                <li class="dropdown"><a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button"
-                                        aria-expanded="false">Sobre nosotros<span class="caret"></span></a>
-                    <ul class="dropdown-menu" role="menu">
-                        <li><a href="mission.html">Misión</a></li>
-                        <li><a href="vision.html">Visión</a></li>
-                        <li><a href="contact.html">Contacto</a></li>
-                    </ul>
-                </li>
-                <li><a href="register.html">Regístrate</a></li>
-                <li><a href="#" data-toggle="modal" data-target="#login-modal">Ingresa</a></li>
-            </ul>
+        <div id="menu_header" class="collapse navbar-collapse">
 
-
-            <form class="navbar-form navbar-left" role="search">
-                <div class="form-group">
-                    <input type="text" class="form-control" placeholder="¿Qué deseas buscar?" >
-                </div>
-                <button type="submit" class="btn btn-default">Submit</button>
-            </form>
-
-            <!-- Modal -->
-            <div class="modal fade" id="login-modal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" style="display: none;">
-              <div class="modal-dialog">
-                    <div class="loginmodal-container">
-                        <h1>Ingresar a tu cuenta</h1><br>
-                      <form >
-                        <input id="login_user" type="text" name="user" placeholder="E-mail">
-                        <input id="login_pwd" type="password" name="pass" placeholder="Contraseña">
-                        <input id="login_button" type="submit" name="login" class="login loginmodal-submit" value="Ingresar">
-                      </form>
-                        
-                      <div class="login-help">
-                        <a href="#">Regístrate</a> - <a href="#">Olvidé mi contraseña</a>
-                      </div>
-                    </div>
-                </div>
-              </div>
-                <!-- /.navbar-collapse -->
-            </div>
-            <!-- /.container-fluid -->
+            <!-- /.navbar-collapse -->
         </div>
+        <!-- /.container-fluid -->
+    </div>
     </div>
 </nav>
 <div class="container">
@@ -273,5 +235,6 @@
 <script src="js/bootstrap.min.js"></script>
 <script type="text/javascript" src="js/sweetalert.min.js"></script>
 <script type="application/javascript" src="js/login.js"></script>
+<script type="application/javascript" src="js/menu_header.js"></script>
 </body>
 </html>
