@@ -8,6 +8,7 @@
 
     <!-- Bootstrap -->
     <link rel="stylesheet" href="css/bootstrap.css">
+    <link rel="stylesheet" type="text/css" href="css/sweetalert.css">
 
     <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
@@ -56,10 +57,10 @@
               <div class="modal-dialog">
                     <div class="loginmodal-container">
                         <h1>Ingresar a tu cuenta</h1><br>
-                      <form>
-                        <input type="text" name="user" placeholder="E-mail">
-                        <input type="password" name="pass" placeholder="Contraseña">
-                        <input type="submit" name="login" class="login loginmodal-submit" value="Ingresar">
+                      <form >
+                        <input id="login_user" type="text" name="user" placeholder="E-mail">
+                        <input id="login_pwd" type="password" name="pass" placeholder="Contraseña">
+                        <input id="login_button" type="submit" name="login" class="login loginmodal-submit" value="Ingresar">
                       </form>
                         
                       <div class="login-help">
@@ -270,5 +271,7 @@
 </footer>
 <script src="js/jquery-1.11.2.min.js"></script>
 <script src="js/bootstrap.min.js"></script>
+<script type="text/javascript" src="js/sweetalert.min.js"></script>
+<script type="application/javascript" src="js/login.js"></script>
 </body>
 </html>

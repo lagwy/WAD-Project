@@ -18,6 +18,27 @@ function connectionToDatabase()
     }
 }
 
+function attemptLogin($email, $pwd){
+    $conn = connectionToDatabase();
+
+    if ($conn != null){
+        $sql = "SELECT * FROM Customers WHERE Email = '$email' AND Passwd = md5('$pwd')";
+        $result = $conn->query($sql);
+
+        if ($result->num_rows > 0) {
+            $conn->close();
+            return array("status" => "SUCCESS");
+        } else {
+            // There is no user with this information
+            $conn->close();
+            return array("status" => "NOT FOUND");
+        }
+    }else {
+        $conn->close();
+        return array("status" => "COULD NOT CONNECT TO DATABASE");
+    }
+}
+
 function attemptRegistration($name, $last_name, $address, $city, $state, $country, $zip, $phone, $email, $pwd){
     $conn = connectionToDatabase();
     
