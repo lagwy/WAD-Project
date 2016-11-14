@@ -70,4 +70,22 @@ function attemptRegistration($name, $last_name, $address, $city, $state, $countr
     }
 }
 
+function getProduct() {
+    //Create connection to database
+    $conn = connectionToDataBase();
+
+    $sql = "SELECT Name, Description FROM Products";
+    $result = $conn->query($sql);
+
+    if ($result->num_rows > 0) {
+        // output data of each row
+        while($row = $result->fetch_assoc()) {
+            echo "Name: " . $row["Name"]. " Description: " . $row["Description"]. "<br>";
+        }
+    } else {
+        echo "0 results";
+    }
+    $conn->close();
+}
+
 ?>
