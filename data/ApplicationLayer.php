@@ -11,6 +11,21 @@ switch ($action){
         break;
 }
 
+function getProducts(){
+    $result = attemptGetProduct();
+    if ($result['status'] == "SUCCESS"){
+        echo json_encode($result);
+    } else {
+        if ($result['status'] == "FAILED"){
+            echo json_encode(array("message"=>"No hay productos"));
+        } else {
+            header("HTTP/1.1 " . $result['status']);
+            die($result['status']);
+        }
+    }
+    
+}
+
 function checkSession(){
     session_start();
     if (isset( $_SESSION['email'] )) {

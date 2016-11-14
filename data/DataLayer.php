@@ -1,7 +1,6 @@
 <?php
 
-function connectionToDatabase()
-{
+function connectionToDatabase(){
     $servername = "db650115939.db.1and1.com";
     $username = "dbo650115939";
     $password = "wadaug16";
@@ -70,22 +69,30 @@ function attemptRegistration($name, $last_name, $address, $city, $state, $countr
     }
 }
 
-function getProduct() {
+function attemptGetProduct() {
     //Create connection to database
-    $conn = connectionToDataBase();
+    $conn = connectionToDatabase();
 
     $sql = "SELECT Name, Description FROM Products";
     $result = $conn->query($sql);
-
-    if ($result->num_rows > 0) {
-        // output data of each row
-        while($row = $result->fetch_assoc()) {
-            echo "Name: " . $row["Name"]. " Description: " . $row["Description"]. "<br>";
+    if ($conn != null){
+        if ($result->num_rows > 0) {
+            $full_response = array("status" => "SUCCESS");
+            // output data of each row
+            while($row = $result->fetch_assoc()) {
+                $response = array("ProductName" => $row['Name'], "ProductDescription" => $row['Description']);
+                array_push($full_response, $response);
+            }
+            $conn->close();
+            return $full_response;
+        } else {
+            $conn->close();
+            return array("status" => "FAILED");
         }
     } else {
-        echo "0 results";
+        $conn->close();
+        return array("status" => "COULD NOT CONNECT TO DATABASE");
     }
-    $conn->close();
 }
 
 ?>

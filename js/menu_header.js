@@ -4,6 +4,7 @@
     text += '<li class="dropdown"><a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button"';
 text += 'aria-expanded="false">Sobre nosotros<span class="caret"></span></a>';
     text += '<ul class="dropdown-menu" role="menu">';
+    text += '<li><a href="history.html">Historia</a></li>';
     text += '<li><a href="mission.html">Misión</a></li>';
     text += '<li><a href="vision.html">Visión</a></li>';
     text += '<li><a href="contact.html">Contacto</a></li></ul></li>';
