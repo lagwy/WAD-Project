@@ -44,12 +44,12 @@
                 <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown">
                     <span id="search_concept">Filtrar por</span> <span class="caret"></span>
                 </button>
-                <ul class="dropdown-menu" role="menu">
-                    <li><a href="#">Computadora</a></li>
+                <ul id="categories_list" class="dropdown-menu" role="menu">
+                    <!-- <li><a href="#">Computadora</a></li>
                     <li><a href="#">Memoria</a></li>
                     <li><a href="#">Disco duro</a></li>
                     <li class="divider"></li>
-                    <li><a href="#">Todo</a></li>
+                    <li><a href="#">Todo</a></li> -->
                 </ul>
             </div>
         <div class="col-xs-8">
@@ -216,12 +216,23 @@
 <script type="application/javascript" src="js/menu_header.js"></script>
 <script>
     $(document).ready(function(e){
-        $('.search-panel .dropdown-menu').find('a').click(function(e) {
-            e.preventDefault();
-            var param = $(this).attr("href").replace("#","");
-            var concept = $(this).text();
-            $('.search-panel span#search_concept').text(concept);
-            $('.input-group #search_param').val(param);
+
+        $.ajax({
+            url:"data/categories.json",
+            type: "GET",
+            dataType: "json",
+            success:function(data) {
+                for (var i = 0; i < data.length; i++){
+                    $("#categories_list").append('<li><a href="#">' + data[i].category + '</a></li>');
+                }
+                $('.search-panel .dropdown-menu').find('a').click(function(e) {
+                    e.preventDefault();
+                    var param = $(this).attr("href").replace("#","");
+                    var concept = $(this).text();
+                    $('.search-panel span#search_concept').text(concept);
+                    $('.input-group #search_param').val(param);
+                });
+            }
         });
     });
 </script>

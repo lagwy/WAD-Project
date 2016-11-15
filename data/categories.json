@@ -1,8 +1,8 @@
 [
   {
     "identifier": "AC",
-    "categoria": "Accesorios de Computación",
-    "subcategoria": [
+    "category": "Accesorios de Computación",
+    "subcategories": [
       {
         "subcategory": "Audífonos y Diademas"
       },
@@ -25,8 +25,8 @@
   },
   {
     "identifier": "CTP",
-    "categoria": "Cartuchos, Toner y Papel",
-    "subcategoria": [
+    "category": "Cartuchos, Toner y Papel",
+    "subcategories": [
       {
         "subcategory": "Cartuchos"
       },
@@ -43,8 +43,8 @@
   },
   {
     "identifier": "CP",
-    "categoria": "Componentes de PC",
-    "subcategoria": [
+    "category": "Componentes de PC",
+    "subcategories": [
       {
         "subcategory": "Fuentes de poder"
       },
@@ -70,8 +70,8 @@
   },
   {
     "identifier": "CS",
-    "categoria": "Computadoras y Servidores",
-    "subcategoria": [
+    "category": "Computadoras y Servidores",
+    "subcategories": [
       {
         "subcategory": "Acer"
       },
@@ -106,8 +106,8 @@
   },
   {
     "identifier": "DDR",
-    "categoria": "Discos Duros y Removibles",
-    "subcategoria": [
+    "category": "Discos Duros y Removibles",
+    "subcategories": [
       {
         "subcategory": "Convertidores y Cables"
       },
@@ -124,8 +124,8 @@
   },
   {
     "identifier": "DCV",
-    "categoria": "DVDs y CDs Vírgenes",
-    "subcategoria": [
+    "category": "DVDs y CDs Vírgenes",
+    "subcategories": [
       {
         "subcategory": "CDs Vírgenes"
       },
@@ -142,8 +142,8 @@
   },
   {
     "identifier": "II",
-    "categoria": "Impresoras e Insumos",
-    "subcategoria": [
+    "category": "Impresoras e Insumos",
+    "subcategories": [
       {
         "subcategory": "Impresoras"
       },
@@ -160,8 +160,8 @@
   },
   {
     "identifier": "LAP",
-    "categoria": "Laptops",
-    "subcategoria": [
+    "category": "Laptops",
+    "subcategories": [
       {
         "subcategory": "Acer"
       },
@@ -193,8 +193,8 @@
   },
   {
     "identifier": "MUF",
-    "categoria": "Memorias Portátiles USB/FLASH",
-    "subcategoria": [
+    "category": "Memorias Portátiles USB/FLASH",
+    "subcategories": [
       {
         "subcategory": "1 GB y Memores"
       },
@@ -214,20 +214,20 @@
   },
   {
     "identifier": "MR",
-    "categoria": "Memorias RAM",
-    "subcategoria": [
+    "category": "Memorias RAM",
+    "subcategories": [
       {
         "subcategory": "Para Notebooks"
       },
       {
-        "subcategoria": "Para PC"
+        "subcategories": "Para PC"
       }
     ]
   },
   {
     "identifier": "PRO",
-    "categoria": "Procesadores",
-    "subcategoria": [
+    "category": "Procesadores",
+    "subcategories": [
       {
         "subcategory": "AMD"
       },
@@ -241,8 +241,8 @@
   },
   {
     "identifier": "QDC",
-    "categoria": "Quemadores de DVDs y CDs",
-    "subcategoria": [
+    "category": "Quemadores de DVDs y CDs",
+    "subcategories": [
       {
         "subcategory": "Quemadores de CDs"
       },
@@ -256,8 +256,8 @@
   },
   {
     "identifier": "RRI",
-    "categoria": "Redes y Redes Inalámbricas",
-    "subcategoria": [
+    "category": "Redes y Redes Inalámbricas",
+    "subcategories": [
       {
         "subcategory": "Adaptadores USB Inalámbricos"
       },
@@ -289,8 +289,8 @@
   },
   {
     "identifier": "SW",
-    "categoria": "Software",
-    "subcategoria": [
+    "category": "Software",
+    "subcategories": [
       {
         "subcategory": "Antivirus"
       },
@@ -304,8 +304,8 @@
   },
   {
     "identifier": "TVC",
-    "categoria": "Tarjetas de Video y Captura",
-    "subcategoria": [
+    "category": "Tarjetas de Video y Captura",
+    "subcategories": [
       {
         "subcategory": "Tarjetas de TV"
       },
@@ -322,8 +322,8 @@
   },
   {
     "identifier": "TM",
-    "categoria": "Tarjetas Madre - Motherboards",
-    "subcategoria": [
+    "category": "Tarjetas Madre - Motherboards",
+    "subcategories": [
       {
         "subcategory": "Para AMD"
       },
@@ -337,6 +337,6 @@
   },
   {
     "identifier": "ALL",
-    "categoria": "Todo"
+    "category": "Todo"
   }
 ]
