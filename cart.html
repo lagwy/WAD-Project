@@ -41,25 +41,25 @@
     var param = window.location.search.substr(1);
     // Get both parameters
     var parameters = param.split("&");
-    if (parameters.length >= 2){
+    if (parameters.length >= 2) {
         parametersId = parameters[0].split("=");
         parametersQty = parameters[1].split("=");
         // parametersId[1] has the product id of the selection
         // parametersQty[1] contains the quantity of that product
         // swal(parametersId[1] + parametersQty[1]);
         var jsonObject = {
-            "action" : "ADD_PRODUCT",
-            "Quantity" : parametersQty[1],
-            "IdProduct" : parametersId[1]
+            "action": "ADD_PRODUCT",
+            "Quantity": parametersQty[1],
+            "IdProduct": parametersId[1]
         };
         $.ajax({
             type: "POST",
             url: "data/ApplicationLayer.php",
-            data : jsonObject,
-            dataType : "json",
-            contentType : "application/x-www-form-urlencoded",
-            success: function(jsonData) {
-                if (jsonData.status == "SUCCESS"){
+            data: jsonObject,
+            dataType: "json",
+            contentType: "application/x-www-form-urlencoded",
+            success: function (jsonData) {
+                if (jsonData.status == "SUCCESS") {
                     // swal("Producto añadido al carrito exitosamente");
                     window.location.replace("catalog.html");
                 } else {
@@ -67,7 +67,7 @@
                     window.location.replace("home.html");
                 }
             },
-            error: function(errorMsg){
+            error: function (errorMsg) {
                 alert("Error al añadir al carrito.");
             }
         }); // End of ajax call

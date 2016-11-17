@@ -4,8 +4,8 @@ $(function () {
         return text === "";
     }
 
-   $('#register').click(function (event) {
-       event.preventDefault();
+    $('#register').click(function (event) {
+        event.preventDefault();
 
        // Get all the values and then check if one of them is empty
        var name = $('#name').val();

@@ -34,7 +34,8 @@
                     <li data-target="#carousel1" data-slide-to="2" class=""></li>
                 </ol>
                 <div class="carousel-inner">
-                    <div class="item active"><img class="img-responsive" src="img/carousel/carousel2.jpg" alt="thumb"></div>
+                    <div class="item active"><img class="img-responsive" src="img/carousel/carousel2.jpg" alt="thumb">
+                    </div>
                     <div class="item"><img class="img-responsive" src="img/carousel/carousel1.jpg" alt="thumb"></div>
                     <div class="item"><img class="img-responsive" src="img/carousel/carousel3.jpg" alt="thumb"></div>
                 </div>
@@ -149,22 +150,22 @@
 <script type="application/javascript" src="js/footer.js"></script>
 <script type="application/javascript">
     var jsonObject = {
-        "action" : "RECOMMENDED"
+        "action": "RECOMMENDED"
     };
     $.ajax({
         type: "POST",
         url: "data/ApplicationLayer.php",
-        data : jsonObject,
-        dataType : "json",
-        contentType : "application/x-www-form-urlencoded",
-        success: function(jsonData) {
-            if (jsonData.length > 0){
-                for (var i = 0; i < jsonData.length; i++){
+        data: jsonObject,
+        dataType: "json",
+        contentType: "application/x-www-form-urlencoded",
+        success: function (jsonData) {
+            if (jsonData.length > 0) {
+                for (var i = 0; i < jsonData.length; i++) {
                     // Set the image
-                    $("#img_recommended" + i).attr("src", "img/products/" + jsonData[i].IdProduct + ".jpg" ).width(400).height(200);
+                    $("#img_recommended" + i).attr("src", "img/products/" + jsonData[i].IdProduct + ".jpg").width(400).height(200);
 
                     // Verify the title name
-                    if ( jsonData[i].ProductName.length > 49 ){
+                    if (jsonData[i].ProductName.length > 49) {
                         var shortTitlte = jsonData[i].ProductName.substr(0, 49);
                         $("#title_recommended" + i).html(shortTitlte + "...");
                     } else {
@@ -180,7 +181,7 @@
                 swal("No se obtuvieron productos recomendados");
             }
         },
-        error: function(errorMsg){
+        error: function (errorMsg) {
             swal("Error al cargar los datos");
         }
     }); // End of ajax call
