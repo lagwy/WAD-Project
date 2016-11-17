@@ -9,6 +9,18 @@ switch ($action){
         break;
     case "SESSION": checkSession();
         break;
+    default:
+        logout();
+}
+
+function logout(){
+    session_start();
+    unset($_SESSION['email']);
+    unset($_SESSION['pswd']);
+    session_destroy();
+    // Redirect to main page
+    header('Location: ../home.html');
+    die();
 }
 
 function getProducts(){
