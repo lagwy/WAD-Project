@@ -103,10 +103,10 @@ function attemptGetProduct() {
     $result = $conn->query($sql);
     if ($conn != null){
         if ($result->num_rows > 0) {
-            $full_response = array("status" => "SUCCESS");
+            $full_response = array();
             // output data of each row
             while($row = $result->fetch_assoc()) {
-                $response = array("ProductName" => $row['Name'], "ProductDescription" => $row['Description']);
+                $response = array("IdProduct" => $row['Id_Product'],"ProductName" => $row['Name'], "ProductDescription" => $row['Description'], "Category"=>$row['Category'], "Subcategory"=>$row['Subcategory']);
                 array_push($full_response, $response);
             }
             $conn->close();

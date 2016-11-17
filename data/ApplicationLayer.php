@@ -9,6 +9,8 @@ switch ($action){
         break;
     case "SESSION": checkSession();
         break;
+    case "PRODUCTS": getProducts();
+        break;
     case "RECOMMENDED": getRecommendedProducts();
         break;
     default:
@@ -32,17 +34,7 @@ function logout(){
 
 function getProducts(){
     $result = attemptGetProduct();
-    if ($result['status'] == "SUCCESS"){
-        echo json_encode($result);
-    } else {
-        if ($result['status'] == "FAILED"){
-            echo json_encode(array("message"=>"No hay productos"));
-        } else {
-            header("HTTP/1.1 " . $result['status']);
-            die($result['status']);
-        }
-    }
-    
+    echo json_encode($result);
 }
 
 function checkSession(){
