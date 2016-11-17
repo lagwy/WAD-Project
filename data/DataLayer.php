@@ -99,7 +99,7 @@ function attemptGetProduct() {
     //Create connection to database
     $conn = connectionToDatabase();
 
-    $sql = "SELECT Name, Description FROM Products";
+    $sql = "SELECT * FROM Products";
     $result = $conn->query($sql);
     if ($conn != null){
         if ($result->num_rows > 0) {
