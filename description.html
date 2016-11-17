@@ -85,6 +85,8 @@
                         $("#product_title").html(jsonData.ProductName);
                         $("#product_description").text(jsonData.ProductDescription);
                         $("#product_image").attr("src","img/products/" + jsonData.IdProduct + ".jpg").width(650).height(350);
+                        // Store the product id
+                        var prodId = jsonData.IdProduct;
                         // Show the buttons if the users is logged in
                         // Check session to hide add to cart buttons
                         var jsonObject = {
@@ -103,6 +105,14 @@
                                 } else {
                                     $("#qty").show();
                                     $("#add_to_cart").show();
+                                    $("#add_to_cart").click(function () {
+                                        // window.location.replace("home.html");
+                                        if ( $("#middle-label").val() != "" ){
+                                            window.location.replace("cart.html?IdProduct="+ prodId +"&Quantity=" + $("#middle-label").val()  );
+                                        } else {
+                                            swal("Por favor, ingrese una cantidad.");
+                                        }
+                                    });
                                 }
                             },
                             error: function(){
@@ -113,7 +123,10 @@
                         swal("Id de producto equivocado");
                         window.location.replace("home.html");
                     }
-                    $("#search_menu_header").hide();
+                    // Wait and then hide the search bar
+                    setTimeout(function(){
+                        $("#search_menu_header").hide();
+                    }, 2000);
                 },
                 error: function(errorMsg){
                     alert("Error al registrar");
