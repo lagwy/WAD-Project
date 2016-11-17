@@ -20,23 +20,14 @@
 <body>
 <nav>
     <div class="container">
-
-        <!-- Brand and toggle get grouped for better mobile display -->
         <div id="logo_header" class="navbar-header"></div>
-
-        <!-- Collect the nav links, forms, and other content for toggling -->
-        <div id="menu_header" class="collapse navbar-collapse">
-
-            <!-- /.navbar-collapse -->
-        </div>
-        <!-- /.container-fluid -->
+        <div id="menu_header" class="collapse navbar-collapse"></div>
     </div>
 </nav>
 <hr>
 <!-- End of header -->
+
 <!-- Begin body -->
-
-
 <div class="container">
     <div class="pan4 offset4">
     <div class="input-group col-md-8 col-md-offset-3">
@@ -44,13 +35,7 @@
                 <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown">
                     <span id="search_concept">Filtrar por</span> <span class="caret"></span>
                 </button>
-                <ul id="categories_list" class="dropdown-menu" role="menu">
-                    <!-- <li><a href="#">Computadora</a></li>
-                    <li><a href="#">Memoria</a></li>
-                    <li><a href="#">Disco duro</a></li>
-                    <li class="divider"></li>
-                    <li><a href="#">Todo</a></li> -->
-                </ul>
+                <ul id="categories_list" class="dropdown-menu" role="menu"></ul>
             </div>
         <div class="col-xs-8">
             <input class="form-control" id="text_search" placeholder="¿Qué deseas buscar?" type="text">
@@ -63,11 +48,9 @@
 <h2 class="text-center">PRODUCTOS</h2>
 <hr>
 <div id="products_list" class="container"></div>
-
-    <div id="green" style="margin: auto;"></div>
-
-<!-- End of body-->
+<div id="green" style="margin: auto;"></div>
 <hr>
+<!-- End of body-->
 
 <!-- Footer section -->
 <div id="prev_footer" class="container well"></div>
@@ -132,15 +115,37 @@
                         } else {
                             title = jsonData[i].ProductName;
                         }
-                        text += '<div class="caption"><h3>'+ title + '</h3>';
+                        text += '<div class="caption"><a href="description?IdProduct=' + jsonData[i].IdProduct +'" ><h3 class="text-center">'+ title + '</h3></a>';
                         var shortDescription = jsonData[i].ProductDescription.substr(0, 92) + "...";
                         text += '<p>' + shortDescription +'</p>';
-                        text += '<p><a href="#" class="btn btn-primary" role="button"><span class="glyphicon glyphicon-shopping-cart" aria-hidden="true"></span>Añadir al carrito</a></p></div></div></div></divider>';
-
+                        text += '<p class="add_cart"><a href="#" class="btn btn-primary" role="button"><span class="glyphicon glyphicon-shopping-cart" aria-hidden="true"></span>Añadir al carrito</a></p></div></div></div></divider>';
                         $('#products_list').append(text);
                     }
                     $(".img-size").width(400).height(200);
-                    $('#green').smartpaginator({ totalrecords: productsQuantity, recordsperpage: 6, datacontainer: 'products_list', dataelement: 'divider', initval: 0, next: 'Next', prev: 'Prev', first: 'First', last: 'Last', theme: 'green' });
+                    $('#green').smartpaginator({ totalrecords: productsQuantity, recordsperpage: 6, datacontainer: 'products_list', dataelement: 'divider', initval: 0, next: 'Sig', prev: 'Ant', first: 'Prim', length: 3 , last: 'Últ', theme: 'green' });
+                    $('.short').hide();
+                    // Check session to hide add to cart buttons
+                    var jsonObject = {
+                        "action" : "SESSION"
+                    };
+
+                    $.ajax({
+                        type: "POST",
+                        url: "data/ApplicationLayer.php",
+                        data : jsonObject,
+                        dataType : "json",
+                        contentType : "application/x-www-form-urlencoded",
+                        success: function(jsonData) {
+                            if (jsonData.status == 2){
+                                // There is no active session
+                                $(".add_cart").hide();
+                                swal("Inicia sesión para poder añadir elementos al carrito.");
+                            }
+                        },
+                        error: function(){
+                            alert("Error al revisar la sesión");
+                        }
+                    });
                 } else {
                     swal("No se obtuvieron productos recomendados");
                 }
