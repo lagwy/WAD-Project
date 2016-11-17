@@ -17,6 +17,28 @@ function connectionToDatabase(){
     }
 }
 
+function attemptGetDescription($id){
+    $conn = connectionToDatabase();
+
+    if ($conn != null){
+        $sql = "SELECT * FROM Products WHERE Id_Product = " . $id;
+        $result = $conn->query($sql);
+        if ($result->num_rows > 0){
+            $row = $result->fetch_assoc();
+            $response = array("status" => "SUCCESS","IdProduct" => $row['Id_Product'],"ProductName" => $row['Name'], "ProductDescription" => $row['Description'], "Category"=>$row['Category'], "Subcategory"=>$row['Subcategory']);
+            $conn->close();
+            return $response;
+        } else {
+            $response = array("status" => "FAILED");
+            $conn->close();
+            return $response;
+        }
+    } else {
+        $conn->close();
+        return array("status"=>"COULD NOT CONNECT TO DATABASE");
+    }
+}
+
 function attemptRecommendedProducts(){
     $conn = connectionToDatabase();
     

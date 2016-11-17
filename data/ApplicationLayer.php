@@ -13,8 +13,16 @@ switch ($action){
         break;
     case "RECOMMENDED": getRecommendedProducts();
         break;
+    case "DESCRIPTION": getDescription();
+        break;
     default:
         logout();
+}
+
+function getDescription(){
+    $IdProduct = $_POST['IdProduct'];
+    $result = attemptGetDescription($IdProduct);
+    echo json_encode($result);
 }
 
 function getRecommendedProducts(){

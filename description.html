@@ -9,6 +9,7 @@
     <!-- Bootstrap -->
     <link rel="stylesheet" href="css/bootstrap.css">
     <link rel="stylesheet" type="text/css" href="css/sweetalert.css">
+    <link rel="stylesheet" href="http://dhbhdrzi4tiry.cloudfront.net/cdn/sites/foundation.min.css">
     <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
     <!--[if lt IE 9]>
@@ -19,21 +20,34 @@
 <body>
 <nav>
     <div class="container">
-
-        <!-- Brand and toggle get grouped for better mobile display -->
         <div id="logo_header" class="navbar-header"></div>
-
-        <!-- Collect the nav links, forms, and other content for toggling -->
-        <div id="menu_header" class="collapse navbar-collapse">
-
-            <!-- /.navbar-collapse -->
-        </div>
-        <!-- /.container-fluid -->
+        <div id="menu_header" class="collapse navbar-collapse"></div>
     </div>
 </nav>
 <hr>
 <!-- End of header -->
 
+<div class="row">
+    <div class="medium-6 columns">
+        <img id="product_image" class="thumbnail" src="">
+    </div>
+    <div class="medium-6 large-5 columns">
+        <h3 id="product_title"></h3>
+        <p id="product_description" class="text-justify"></p>
+
+        <div id="qty" class="row" style="display: none">
+            <div class="small-3 columns">
+                <label for="middle-label" class="middle">Cantidad</label>
+            </div>
+            <div class="small-9 columns">
+                <input type="number" id="middle-label" min="1" placeholder="1">
+            </div>
+        </div>
+
+        <a id="add_to_cart" style="display: none" href="#" class="button large expanded">Añadir al carrito</a>
+
+    </div>
+</div>
 
 <!-- End of body -->
 <hr>
@@ -47,5 +61,66 @@
 <script type="application/javascript" src="js/menu_header.js"></script>
 <script type="application/javascript" src="js/prev_footer.js"></script>
 <script type="application/javascript" src="js/footer.js"></script>
+<script type="application/javascript">
+    $(function () {
+        var param = window.location.search.substr(1);
+        if (param == ""){
+            window.location.replace("home.html");
+        } else{
+            parameter = param.split('=');
+            // Perform the ajax call
+            var jsonObject = {
+                "action" : "DESCRIPTION",
+                "IdProduct" : parameter[1]
+            };
+            $.ajax({
+                type: "POST",
+                url: "data/ApplicationLayer.php",
+                data : jsonObject,
+                dataType : "json",
+                contentType : "application/x-www-form-urlencoded",
+                success: function(jsonData) {
+                    if (jsonData.status == "SUCCESS"){
+                        // swal(jsonData.ProductName);
+                        $("#product_title").html(jsonData.ProductName);
+                        $("#product_description").text(jsonData.ProductDescription);
+                        $("#product_image").attr("src","img/products/" + jsonData.IdProduct + ".jpg").width(650).height(350);
+                        // Show the buttons if the users is logged in
+                        // Check session to hide add to cart buttons
+                        var jsonObject = {
+                            "action" : "SESSION"
+                        };
+                        $.ajax({
+                            type: "POST",
+                            url: "data/ApplicationLayer.php",
+                            data : jsonObject,
+                            dataType : "json",
+                            contentType : "application/x-www-form-urlencoded",
+                            success: function(jsonData) {
+                                if (jsonData.status == 2){
+                                    // There is no active session
+                                    swal("Inicia sesión para poder añadir este elemento al carrito.");
+                                } else {
+                                    $("#qty").show();
+                                    $("#add_to_cart").show();
+                                }
+                            },
+                            error: function(){
+                                alert("Error al revisar la sesión");
+                            }
+                        });
+                    } else {
+                        swal("Id de producto equivocado");
+                        window.location.replace("home.html");
+                    }
+                    $("#search_menu_header").hide();
+                },
+                error: function(errorMsg){
+                    alert("Error al registrar");
+                }
+            }); // End of ajax call
+        }
+    });
+</script>
 </body>
 </html>

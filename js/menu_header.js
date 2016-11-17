@@ -26,7 +26,7 @@ $.ajax({
             // There is no active session
             text += '<li><a href="register.html">Regístrate</a></li>';
             text +='<li><a href="#" data-toggle="modal" data-target="#login-modal">Ingresa</a></li>';
-            text += '</ul><form class="navbar-form navbar-left" role="search"><div class="form-group"><input type="text" class="form-control" placeholder="¿Qué deseas buscar?"></div><button type="submit" class="btn btn-default">Submit</button></form>';
+            text += '</ul><form id="search_menu_header" class="navbar-form navbar-left" role="search"><div class="form-group"><input type="text" class="form-control" placeholder="¿Qué deseas buscar?"></div><button type="submit" class="btn btn-default">Buscar</button></form>';
             text += '<!-- Modal -->';
             text +='<div class="modal fade" id="login-modal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" style="display:none;"><div class="modal-dialog"><div class="loginmodal-container"><h1>Ingresar a tu cuenta</h1><br><form><input id="login_user" type="text" name="user" placeholder="E-mail"><input id="login_pwd" type="password" name="pass" placeholder="Contraseña"><div id="login_button" style="text-align:center;cursor:pointer;" class="login loginmodal-submit">Ingresar</div></form> <div class="login-help"><a href="#">Regístrate</a> - <a href="#">Olvidé mi contraseña</a></div></div></div></div>';
         } else {

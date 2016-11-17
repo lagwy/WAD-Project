@@ -115,7 +115,7 @@
                         } else {
                             title = jsonData[i].ProductName;
                         }
-                        text += '<div class="caption"><a href="description?IdProduct=' + jsonData[i].IdProduct +'" ><h3 class="text-center">'+ title + '</h3></a>';
+                        text += '<div class="caption"><a href="description.html?IdProduct=' + jsonData[i].IdProduct +'" ><h3 class="text-center">'+ title + '</h3></a>';
                         var shortDescription = jsonData[i].ProductDescription.substr(0, 92) + "...";
                         text += '<p>' + shortDescription +'</p>';
                         text += '<p class="add_cart"><a href="#" class="btn btn-primary" role="button"><span class="glyphicon glyphicon-shopping-cart" aria-hidden="true"></span>Añadir al carrito</a></p></div></div></div></divider>';
