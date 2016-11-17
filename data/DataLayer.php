@@ -28,8 +28,7 @@ function attemptAddToCart($user, $product, $qty){
             $conn->close();
             return array("status"=>"Product already in the cart");
         } else {
-            $sql = "INSERT INTO ProductsInCart (Id_Customer, Id_Product, Quantity) VALUES 
-                    ($user, $product, $qty)";
+            $sql = "INSERT INTO ProductsInCart (Id_Customer, Id_Product, Quantity) VALUES ($user, $product, $qty)";
             if (mysqli_query($conn, $sql)) {
                 $conn->close();
                 return array("status" => "SUCCESS");

@@ -26,12 +26,6 @@
 <hr>
 <!-- End of header -->
 
-<h1 style="text-align: center;">Visión</h1>
-<p style="margin-left: 140px; margin-right: 140px" class="text-justify text-center">Te garantizamos que al comprar en nuestra página, desde cualquier parte de la República Mexicana, te sentirás totalmente satisfecho con la calidad de nuestros productos, los precios altamente competitivos, nuestra entrega a domicilio y nuestra garantía de satisfacción.</p>
-<p style="margin-left: 140px; margin-right: 140px" class="text-justify text-center">En 2020 planeamos llegar a seguir creciendo como una empresa internacional que pueda competir con grandes empresas del ámbito computacional.</p>
-
-
-
 <!-- Footer section -->
 <hr>
 <div id="prev_footer" class="container well"></div>
@@ -43,5 +37,44 @@
 <script type="application/javascript" src="js/menu_header.js"></script>
 <script type="application/javascript" src="js/prev_footer.js"></script>
 <script type="application/javascript" src="js/footer.js"></script>
+<script type="application/javascript">
+    var param = window.location.search.substr(1);
+    // Get both parameters
+    var parameters = param.split("&");
+    if (parameters.length >= 2){
+        parametersId = parameters[0].split("=");
+        parametersQty = parameters[1].split("=");
+        // parametersId[1] has the product id of the selection
+        // parametersQty[1] contains the quantity of that product
+        // swal(parametersId[1] + parametersQty[1]);
+        var jsonObject = {
+            "action" : "ADD_PRODUCT",
+            "Quantity" : parametersQty[1],
+            "IdProduct" : parametersId[1]
+        };
+        $.ajax({
+            type: "POST",
+            url: "data/ApplicationLayer.php",
+            data : jsonObject,
+            dataType : "json",
+            contentType : "application/x-www-form-urlencoded",
+            success: function(jsonData) {
+                if (jsonData.status == "SUCCESS"){
+                    // swal("Producto añadido al carrito exitosamente");
+                    window.location.replace("catalog.html");
+                } else {
+                    swal("Id de producto equivocado");
+                    window.location.replace("home.html");
+                }
+            },
+            error: function(errorMsg){
+                alert("Error al añadir al carrito.");
+            }
+        }); // End of ajax call
+    } else {
+        // Then just load the cart
+        swal("Cargando el carrito");
+    }
+</script>
 </body>
 </html>

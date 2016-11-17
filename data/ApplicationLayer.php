@@ -33,8 +33,7 @@ function addProductToCart(){
         if ($result['status'] == "COULD NOT ADD PRODUCT TO CART"){
             echo json_encode(array("message"=>"El producto ya está en el carrito."));
         } else {
-            header("HTTP/1.1 " . $result['status']);
-            die($result['status']);
+            echo json_encode(array("message"=>$result['status']));
         }
     }
 }
