@@ -17,6 +17,32 @@ function connectionToDatabase(){
     }
 }
 
+function attemptRecommendedProducts(){
+    $conn = connectionToDatabase();
+    
+    if($conn != null){
+        $sql = "SELECT * FROM `Products` GROUP BY Category";
+        $result = $conn->query($sql);
+        
+        if ($result->num_rows > 0){
+            $full_response = array();
+            // output data of each row
+            while($row = $result->fetch_assoc()) {
+                $response = array("IdProduct" => $row['Id_Product'],"ProductName" => $row['Name'], "ProductDescription" => $row['Description'], "Category"=>$row['Category'], "Subcategory"=>$row['Subcategory']);
+                array_push($full_response, $response);
+            }
+            $conn->close();
+            return $full_response;
+        } else {
+            $conn->close();
+            return array("status" => "FAILED");
+        }
+    } else {
+        $conn->close();
+        return array("status"=>"COULD NOT CONNECT TO DATABASE");
+    }
+}
+
 function attemptLogin($email, $pwd){
     $conn = connectionToDatabase();
 

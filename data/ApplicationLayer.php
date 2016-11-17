@@ -9,8 +9,15 @@ switch ($action){
         break;
     case "SESSION": checkSession();
         break;
+    case "RECOMMENDED": getRecommendedProducts();
+        break;
     default:
         logout();
+}
+
+function getRecommendedProducts(){
+    $result = attemptRecommendedProducts();
+    echo json_encode($result);
 }
 
 function logout(){
