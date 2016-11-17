@@ -17,6 +17,31 @@ function connectionToDatabase(){
     }
 }
 
+function sendEmail(){
+    $headers = "From: hola@lagwy.com\r\n";
+    $headers .= "X-Mailer: PHP/" . phpversion();
+    $subject = "Cotización solicitada.";
+
+    // Data of the user
+    $name = "Something";
+    $mobile ="Some number";
+    $email = "Some email";
+    $message = "Some text";
+
+    // Message body
+    $body = "This is the body of the email.\n\n";
+    $body .= "The name is: ".$name."\n";
+    $body .= "The mobile is: ".$mobile."\n";
+    $body .= "The email is: ".$email."\n";
+    $body .= "The message is: ".$message."\n";
+    $body .= "This is the end of the message";
+
+    $to = "lamg@itesm.mx";
+
+    $result = mail($to, $subject, $body, $headers);
+    return array("status"=>$result);
+}
+
 function attemptGetDescription($id){
     $conn = connectionToDatabase();
 
