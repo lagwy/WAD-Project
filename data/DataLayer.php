@@ -17,6 +17,33 @@ function connectionToDatabase(){
     }
 }
 
+function attemptAddToCart($user, $product, $qty){
+    $conn = connectionToDatabase();
+
+    if ($conn != null){
+        $sql = "SELECT * FROM ProductsInCart WHERE Id_Customer = $user AND Id_Product = $product";
+        $result = $conn->query($sql);
+
+        if ($result->num_rows > 0){
+            $conn->close();
+            return array("status"=>"Product already in the cart");
+        } else {
+            $sql = "INSERT INTO ProductsInCart (Id_Customer, Id_Product, Quantity) VALUES 
+                    ($user, $product, $qty)";
+            if (mysqli_query($conn, $sql)) {
+                $conn->close();
+                return array("status" => "SUCCESS");
+            } else {
+                $conn->close();
+                return array("status" => "COULD NOT ADD PRODUCT TO CART");
+            }
+        }
+    } else {
+        $conn->close();
+        return array("status"=>"COULD NOT CONNECT TO DATABASE");
+    }
+}
+
 function sendEmail(){
     $headers = "From: hola@lagwy.com\r\n";
     $headers .= "X-Mailer: PHP/" . phpversion();
@@ -98,6 +125,9 @@ function attemptLogin($email, $pwd){
         $result = $conn->query($sql);
 
         if ($result->num_rows > 0) {
+            $row = $result->fetch_assoc();
+            session_start();
+            $_SESSION['IdUser'] = $row['Id_Customer'];
             $conn->close();
             return array("status" => "SUCCESS");
         } else {

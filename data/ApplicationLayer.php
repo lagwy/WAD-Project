@@ -15,8 +15,28 @@ switch ($action){
         break;
     case "DESCRIPTION": getDescription();
         break;
+    case "ADD_PRODUCT": addProductToCart();
+        break;
     default:
         logout();
+}
+
+function addProductToCart(){
+    session_start();
+    $product = $_POST['IdProduct'];
+    $qty = $_POST['Quantity'];
+    // Send the user id, product id and quantity
+    $result = attemptAddToCart($_SESSION['IdUser'], $product, $qty );
+    if ($result['status'] == "SUCCESS"){
+        echo json_encode($result);
+    } else {
+        if ($result['status'] == "COULD NOT ADD PRODUCT TO CART"){
+            echo json_encode(array("message"=>"El producto ya está en el carrito."));
+        } else {
+            header("HTTP/1.1 " . $result['status']);
+            die($result['status']);
+        }
+    }
 }
 
 function getDescription(){
