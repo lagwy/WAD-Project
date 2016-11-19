@@ -24,8 +24,18 @@ switch ($action) {
     case "ADD_PRODUCT":
         addProductToCart();
         break;
+    case "LOAD_CART":
+        loadCart();
+        break;
     default:
         logout();
+}
+
+function loadCart(){
+    session_start();
+    $IdUser = $_SESSION['IdUser'];
+    $result = attemptLoadCart($IdUser);
+    echo json_encode($result);
 }
 
 function addProductToCart()

@@ -1,5 +1,6 @@
 <?php
 
+
 function connectionToDatabase()
 {
     $servername = "db650115939.db.1and1.com";
@@ -15,6 +16,33 @@ function connectionToDatabase()
         return null;
     } else {
         return $conn;
+    }
+}
+
+function attemptLoadCart($user){
+    $conn = connectionToDatabase();
+
+    if ($conn != null){
+        $sql = "SELECT p.Name, pc.Id_Product, pc.Quantity FROM `ProductsInCart` pc, `Products` p WHERE pc.Id_Customer = $user AND pc.Id_Product = p.Id_Product ";
+        $result = $conn->query($sql);
+
+        if ($result->num_rows > 0) {
+            $full_response = array();
+            // output data of each row
+            while ($row = $result->fetch_assoc()) {
+                $response = array("ProductName" => $row['Name'], "ProductId" => $row['Id_Product'], "Quantity" => $row['Quantity']);
+                array_push($full_response, $response);
+            }
+            $conn->close();
+            return  $full_response;
+        } else {
+            $conn->close();
+            return array("status" => "EMPTY");
+        }
+
+    } else {
+        $conn->close();
+        return array("status" => "COULD NOT CONNECT TO DATABASE");
     }
 }
 

@@ -36,79 +36,17 @@
 
                         </div>
                         <div class="col-md-6">
-                            <button class="btn btn-primary btn-sm pull-right"><span class="glyphicon glyphicon-share-alt"></span> Continue Shoping</button>
+                            <button class="btn btn-primary btn-sm pull-right"><span class="glyphicon glyphicon-share-alt"></span> Seguir comprando</button>
                         </div>
                     </div>
                 </div>
             </div>
-            <div class="panel-body">
-                <div class="row">
-                    <div class="col-md-2 col-xs-12">
-                        <img class="img-responsive" src="img/150x70.png">
-                    </div>
-                    <div class="col-md-4 col-xs-12">
-                        <h4><strong>Product name</strong></h4>
-                    </div>
-                    <div class="col-md-6 col-xs-12">
-                        <div class="col-md-6 text-right">
-
-                        </div>
-                        <div class="col-md-4 col-xs-9">
-                            <input type="text" class="form-control input-sm">
-                        </div>
-                        <div class="col-md-2 col-xs-2">
-                            <button class="btn btn-danger btn-sm"><span class="glyphicon glyphicon-trash"></span></button>
-                        </div>
-                    </div>
-                </div>
-                <hr>
-                <div class="row">
-                    <div class="col-md-2 col-xs-12">
-                        <img class="img-responsive" src="img/150x70.png">
-                    </div>
-                    <div class="col-md-4 col-xs-12">
-                        <h4><strong>Product name</strong></h4>
-                    </div>
-                    <div class="col-md-6 col-xs-12">
-                        <div class="col-md-6 text-right">
-
-                        </div>
-                        <div class="col-md-4 col-xs-9">
-                            <input type="text" class="form-control input-sm">
-                        </div>
-                        <div class="col-md-2 col-xs-2">
-                            <button class="btn btn-danger btn-sm"><span class="glyphicon glyphicon-trash"></span></button>
-                        </div>
-                    </div>
-                </div>
-                <hr>
-                <div class="row">
-                    <div class="col-md-2 col-xs-12">
-                        <img class="img-responsive" src="img/150x70.png">
-                    </div>
-                    <div class="col-md-4 col-xs-12">
-                        <h4><strong>Product name</strong></h4>
-                    </div>
-                    <div class="col-md-6 col-xs-12">
-                        <div class="col-md-6 text-right">
-
-                        </div>
-                        <div class="col-md-4 col-xs-9">
-                            <input type="text" class="form-control input-sm">
-                        </div>
-                        <div class="col-md-2 col-xs-2">
-                            <button class="btn btn-danger btn-sm"><span class="glyphicon glyphicon-trash"></span></button>
-                        </div>
-                    </div>
-                </div>
-                <hr>
-
-            </div>
+            <div id="list_products" class="panel-body"></div>
             <div class="panel-footer">
                 <div class="row">
                     <div class="col-md-9 col-xs-12 text-left">
                     </div>
-                    <div class="col-md-3 col-xs-12">
+                    <div id="quote-btn" class="col-md-3 col-xs-12">
                         <button class="btn btn-success btn-lg btn-block">Cotizar</button>
                     </div>
                 </div>
@@ -152,6 +90,7 @@
             success: function (jsonData) {
                 if (jsonData.status == "SUCCESS") {
                     // swal("Producto añadido al carrito exitosamente");
+                    location.reload();
                     window.location.replace("catalog.html");
                 } else {
                     swal("Id de producto equivocado");
@@ -164,9 +103,40 @@
         }); // End of ajax call
     } else {
         // Then just load the cart
-        swal("Cargando el carrito");
+        var jsonObject2 = {
+            "action": "LOAD_CART"
+        };
+        $.ajax({
+            type: "POST",
+            url: "data/ApplicationLayer.php",
+            data: jsonObject2,
+            dataType: "json",
+            contentType: "application/x-www-form-urlencoded",
+            success: function (jsonData2) {
+                if (jsonData2.status != undefined){
+                    if (jsonData2.status == "EMPTY"){
+                        $("#quote-btn").hide();
+                        swal("Aún no hay elementos en el carrito");
+                    } else {
+                        swal("Ocurrió un error al cargar el carrito.");
+                    }
+                } else {
+                    for (var i = 0; i < jsonData2.length; i++){
+                        textToAdd = '<div class="row"><div class="col-md-2 col-xs-12"><img class="img-responsive small-image" src="img/products/' + jsonData2[i].ProductId +'.jpg"></div><div class="col-md-4 col-xs-12"><h4><strong>' + jsonData2[i].ProductName + '</strong></h4></div>';
+                        textToAdd += '<div class="col-md-6 col-xs-12"><div class="col-md-6 text-right"></div><div class="col-md-4 col-xs-9">';
+                        textToAdd += '<input type="number" min="1" class="form-control input-sm" value="' + jsonData2[i].Quantity +'" ></div><div class="col-md-2 col-xs-2"><button class="btn btn-danger btn-sm"><span class="glyphicon glyphicon-trash"></span></button></div></div></div><hr>';
+                       // console.log( jsonData2[i].ProductName );
+                        $("#list_products").append(textToAdd);
+                    }
+                    $(".small-image").width(150).height(70);
+                    // swal("" + jsonData2.length);
+                }
+            },
+            error: function (errorMsg) {
+                alert("Error al cargar el carrito.");
+            }
+        }); // End of ajax call
     }
 </script>
-<script type="application/javascript" src="js/loadCart.js"></script>
 </body>
 </html>
