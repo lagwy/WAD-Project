@@ -27,8 +27,22 @@ switch ($action) {
     case "LOAD_CART":
         loadCart();
         break;
+    case "QUOTE":
+        quote();
+        break;
     default:
         logout();
+}
+
+function quote(){
+    session_start();
+    $IdUser = $_SESSION['IdUser'];
+    $result = attemptQuote($IdUser);
+    if ($result['status'] == "SUCCESS"){
+        echo json_encode(array("status"=> 1));
+    } else {
+        echo json_encode(array("status"=> 2));
+    }
 }
 
 function loadCart(){

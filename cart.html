@@ -47,7 +47,7 @@
                     <div class="col-md-9 col-xs-12 text-left">
                     </div>
                     <div id="quote-btn" class="col-md-3 col-xs-12">
-                        <button class="btn btn-success btn-lg btn-block">Cotizar</button>
+                        <button id="quote" class="btn btn-success btn-lg btn-block">Cotizar</button>
                     </div>
                 </div>
             </div>
@@ -127,9 +127,34 @@
                         textToAdd += '<input type="number" min="1" class="form-control input-sm" value="' + jsonData2[i].Quantity +'" ></div><div class="col-md-2 col-xs-2"><button class="btn btn-danger btn-sm"><span class="glyphicon glyphicon-trash"></span></button></div></div></div><hr>';
                        // console.log( jsonData2[i].ProductName );
                         $("#list_products").append(textToAdd);
+
                     }
                     $(".small-image").width(150).height(70);
                     // swal("" + jsonData2.length);
+                    $("#quote").click(function (event) {
+                        event.preventDefault();
+                        // swal("Realizar cotización");
+                        var jsonObject3 = {
+                            "action": "QUOTE"
+                        };
+                        $.ajax({
+                            type: "POST",
+                            url: "data/ApplicationLayer.php",
+                            data: jsonObject3,
+                            dataType: "json",
+                            contentType: "application/x-www-form-urlencoded",
+                            success: function (jsonData3) {
+                                if (jsonData3.status == 1){
+                                    swal("Su solicitud de cotización ha sido enviada.");
+                                } else {
+                                    swal("La solicitud de cotización no procedió.");
+                                }
+                            },
+                            error: function (errorMsg) {
+                                alert("Error al enviar a cotizar.");
+                            }
+                        }); // End of ajax call
+                    });
                 }
             },
             error: function (errorMsg) {

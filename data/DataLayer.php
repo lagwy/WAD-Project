@@ -19,6 +19,59 @@ function connectionToDatabase()
     }
 }
 
+function attemptQuote($user){
+    $conn = connectionToDatabase();
+
+    if ($conn != null){
+        $sql = "SELECT pc.`Id_Customer`, c.`First_Name`, c.`Last_Name`, c.`Email`, p.`Id_Product`, p.`Name`, pc.`Quantity` FROM `Customers` c, `Products` p, `ProductsInCart` pc WHERE c.Id_Customer = pc.Id_Customer and p.Id_Product = pc.Id_Product and pc.Id_Customer = $user";
+        $result = $conn->query($sql);
+        if ($result->num_rows > 0) {
+
+            $firstName = "";
+            $lastName = "";
+            $email = "";
+
+            $headers = "From: hola@lagwy.com\r\n";
+            $headers .= "X-Mailer: PHP/" . phpversion();
+
+            // Message body
+            $body = "Cotización solicitada.\n\n\n";
+
+            while ($row = $result->fetch_assoc()) {
+                $productId = $row['Id_Product'];
+                $productName = $row['Name'];
+                $productQuantity = $row['Quantity'];
+
+                $firstName = $row['First_Name'];
+                $lastName = $row['Last_Name'];
+                $email = $row['Email'];
+
+                $body .= "Id del producto: $productId\n";
+                $body .= "Nombre del producto: $productName\n";
+                $body .= "Cantidad: $productQuantity\n\n";
+            }
+
+            $subject = "Cotizacion solicitada por $firstName $lastName ($email) ";
+
+            $body .= "\n\nResponder lo más pronto posible.";
+
+            $to = "lamg@itesm.mx";
+
+            mail($to, $subject, $body, $headers);
+
+            $conn->close();
+            return array("status"=>"SUCCESS");
+        } else {
+            $conn->close();
+            return array("status"=>"THERE ARE NO ELEMENTS IN THE CART");
+        }
+
+    } else {
+        $conn->close();
+        return array("status"=>"COULD NOT CONNECT TO DATABASE");
+    }
+}
+
 function attemptLoadCart($user){
     $conn = connectionToDatabase();
 
@@ -71,32 +124,6 @@ function attemptAddToCart($user, $product, $qty)
         $conn->close();
         return array("status" => "COULD NOT CONNECT TO DATABASE");
     }
-}
-
-function sendEmail()
-{
-    $headers = "From: hola@lagwy.com\r\n";
-    $headers .= "X-Mailer: PHP/" . phpversion();
-    $subject = "Cotización solicitada.";
-
-    // Data of the user
-    $name = "Something";
-    $mobile = "Some number";
-    $email = "Some email";
-    $message = "Some text";
-
-    // Message body
-    $body = "This is the body of the email.\n\n";
-    $body .= "The name is: " . $name . "\n";
-    $body .= "The mobile is: " . $mobile . "\n";
-    $body .= "The email is: " . $email . "\n";
-    $body .= "The message is: " . $message . "\n";
-    $body .= "This is the end of the message";
-
-    $to = "lamg@itesm.mx";
-
-    $result = mail($to, $subject, $body, $headers);
-    return array("status" => $result);
 }
 
 function attemptGetDescription($id)
